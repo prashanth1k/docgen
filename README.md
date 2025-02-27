@@ -1,21 +1,35 @@
-# Nuxt Minimal Starter
+# Document Generator App
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+This project is a Nuxt 3 application that allows users to generate PDFs from a provided template and JSON data. The app has a user-friendly interface for creating and editing both the template (using a rich text editor) and the JSON data. The generated output is displayed in two formats: a downloadable PDF and a rich text preview.
+
+- Tiptap is used for rich text editing.
+- PDF is generated client-side. There are no specific server libraries needed.
+- User can preview or save PDF.
+
+Common use cases can be -
+
+1. Generate mail merge documents from templates and data
+1. Generate invoices
+1. Generate filled application forms
+
+This project is more of a demonstration rather than a library. Use the concepts here to generate PDFs for your own projects.
+
+## Technology Stack
+
+- Nuxt 3
+- Vue 3 (Composition API)
+- Tiptap
+- jsPDF - PDF Generation
+- html2canvas - HTML to Canvas for PDF
+- vue3-json-editor - JSON Editor
+- Tailwind CSS - Styling
+- Pinia - State management
 
 ## Setup
 
 Make sure to install dependencies:
 
 ```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
 # bun
 bun install
 ```
@@ -25,15 +39,6 @@ bun install
 Start the development server on `http://localhost:3000`:
 
 ```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
 # bun
 bun run dev
 ```
@@ -43,15 +48,6 @@ bun run dev
 Build the application for production:
 
 ```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
 # bun
 bun run build
 ```
@@ -59,15 +55,6 @@ bun run build
 Locally preview production build:
 
 ```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
 # bun
 bun run preview
 ```

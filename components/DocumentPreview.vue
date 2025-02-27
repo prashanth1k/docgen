@@ -43,37 +43,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch, nextTick, onMounted } from 'vue'
+import { ref, computed, watch, nextTick } from 'vue'
 import Button from './Button.vue'
 import TipTapEditor from './TipTapEditor.vue'
 import SimplePdfPreview from './SimplePdfPreview.vue'
 import { useDocumentStore } from '~/stores/document'
-import html2canvas from 'html2canvas'
-
-// We'll use dynamic imports for pdfMake
-let pdfMake: any = null
-
-// Initialize pdfMake on client side only
-onMounted(async () => {
-  if (process.client) {
-    try {
-      // Dynamic import of pdfMake
-      const pdfMakeModule = await import('pdfmake/build/pdfmake')
-      const pdfFontsModule = await import('pdfmake/build/vfs_fonts')
-
-      // Get the default export
-      pdfMake = pdfMakeModule.default || pdfMakeModule
-      const pdfFonts = pdfFontsModule.default || pdfFontsModule
-
-      // Initialize fonts
-      if (pdfFonts && pdfFonts.pdfMake && pdfFonts.pdfMake.vfs) {
-        pdfMake.vfs = pdfFonts.pdfMake.vfs
-      }
-    } catch (error) {
-      console.error('Error initializing pdfMake:', error)
-    }
-  }
-})
 
 const props = defineProps<{
   data: Record<string, any>
@@ -245,18 +219,37 @@ const downloadPdf = async () => {
 }
 
 /* Rich Text Editor Styles */
-.quill-editor {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.quill-editor .ql-container {
-  flex: 1;
-  overflow: auto;
-}
-
 .prose {
   max-width: none;
+}
+
+/* Ensure editor text is visible */
+:deep(.ProseMirror) {
+  color: #000 !important;
+}
+
+:deep(.tiptap) {
+  color: #000 !important;
+}
+
+/* Fix button styling */
+:deep(.p-button.p-button-secondary) {
+  background-color: #f0f0f0 !important;
+  color: #333 !important;
+  border-color: #d0d0d0 !important;
+}
+
+:deep(.p-button.p-button-secondary:hover) {
+  background-color: #e0e0e0 !important;
+  border-color: #c0c0c0 !important;
+}
+
+:deep(.p-button.p-button-secondary .p-button-icon) {
+  color: #333 !important;
+}
+
+/* Ensure toolbar has proper background */
+:deep(.toolbar) {
+  background-color: #f5f5f5 !important;
 }
 </style>

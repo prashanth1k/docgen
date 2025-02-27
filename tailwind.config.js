@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+module.exports = {
+  darkMode: "class",
   content: [
     "./components/**/*.{js,vue,ts}",
     "./layouts/**/*.vue",
@@ -37,8 +38,34 @@ export default {
           900: "rgb(var(--neutral-900) / <alpha-value>)",
           950: "rgb(var(--neutral-950) / <alpha-value>)",
         },
+        surface: {
+          ground: "rgb(var(--surface-ground) / <alpha-value>)",
+          section: "rgb(var(--surface-section) / <alpha-value>)",
+          card: "rgb(var(--surface-card) / <alpha-value>)",
+          overlay: "rgb(var(--surface-overlay) / <alpha-value>)",
+          border: "rgb(var(--surface-border) / <alpha-value>)",
+        },
+        text: {
+          primary: "rgb(var(--text-primary) / <alpha-value>)",
+          secondary: "rgb(var(--text-secondary) / <alpha-value>)",
+          disabled: "rgb(var(--text-disabled) / <alpha-value>)",
+        },
       },
+      typography: ({ theme }) => ({
+        DEFAULT: {
+          css: {
+            maxWidth: "65ch",
+            color: "inherit",
+            a: {
+              color: theme("colors.primary.500"),
+              "&:hover": {
+                color: theme("colors.primary.600"),
+              },
+            },
+          },
+        },
+      }),
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 };

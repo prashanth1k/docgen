@@ -34,7 +34,7 @@ const buttonClasses = computed(() => {
   // Variant classes
   const variantClasses = {
     primary: 'bg-primary-600 hover:bg-primary-700 text-white focus:ring-primary-500',
-    secondary: 'bg-surface-section hover:bg-surface-border text-text-primary focus:ring-primary-500'
+    secondary: 'bg-gray-200 hover:bg-gray-300 text-gray-800 focus:ring-primary-500 border border-gray-300'
   };
 
   return [
@@ -53,3 +53,25 @@ const iconSize = computed(() => {
   return sizes[props.size || 'md'];
 });
 </script>
+
+<style>
+/* Add explicit button styles to override any issues with CSS variables */
+button.bg-gray-200 {
+  background-color: #e5e7eb !important;
+  color: #1f2937 !important;
+  border: 1px solid #d1d5db !important;
+}
+
+button.bg-gray-200:hover {
+  background-color: #d1d5db !important;
+}
+
+button.bg-primary-600 {
+  background-color: #2563eb !important;
+  color: white !important;
+}
+
+button.bg-primary-600:hover {
+  background-color: #1d4ed8 !important;
+}
+</style>

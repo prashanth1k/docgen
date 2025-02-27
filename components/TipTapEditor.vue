@@ -206,7 +206,7 @@ onBeforeUnmount(() => {
   display: flex;
   gap: 0.5rem;
   flex-wrap: wrap;
-  background: rgb(var(--surface-section));
+  background: #f5f5f5;
 }
 
 .toolbar-group {
@@ -229,17 +229,17 @@ onBeforeUnmount(() => {
   width: 2rem;
   height: 2rem;
   color: #374151;
-  background: transparent;
-  border: 1px solid transparent;
+  background: #e0e0e0;
+  border: 1px solid #d0d0d0;
 }
 
 .editor-toolbar button:hover {
-  background: #f3f4f6;
+  background: #d0d0d0;
 }
 
 .editor-toolbar button.is-active {
-  background: #e5e7eb;
-  color: rgb(var(--primary-600));
+  background: #c0c0c0;
+  color: #1a56db;
 }
 
 .editor-content {
@@ -247,8 +247,25 @@ onBeforeUnmount(() => {
   overflow-y: auto;
   padding: 1rem;
   background: white;
+  color: black !important;
 }
 
+/* Ensure all text in the editor is visible */
+.ProseMirror {
+  color: black !important;
+}
+
+.ProseMirror h1,
+.ProseMirror h2,
+.ProseMirror h3,
+.ProseMirror p,
+.ProseMirror li,
+.ProseMirror td,
+.ProseMirror th {
+  color: black !important;
+}
+
+/* Preview content */
 .preview-overlay {
   position: absolute;
   top: 38px;
@@ -258,6 +275,11 @@ onBeforeUnmount(() => {
   background: white;
   overflow: auto;
   padding: 1rem;
+  color: black !important;
+}
+
+.preview-overlay .prose {
+  max-width: none;
 }
 
 .ProseMirror {
@@ -338,10 +360,6 @@ onBeforeUnmount(() => {
 }
 
 .editor-content .prose {
-  max-width: none;
-}
-
-.preview-overlay .prose {
   max-width: none;
 }
 </style>

@@ -5,12 +5,12 @@
 :root {
   /* Light Mode Colors */
   --surface-ground: 255 255 255; /* white */
-  --surface-section: 248 250 252; /* slate-50 */
+  --surface-section: 240 240 240; /* light gray */
   --surface-card: 255 255 255; /* white */
   --surface-overlay: 248 250 252; /* slate-50 */
-  --surface-border: 226 232 240; /* slate-200 */
+  --surface-border: 200 200 200; /* darker gray for borders */
 
-  --text-primary: 15 23 42; /* slate-900 */
+  --text-primary: 0 0 0; /* black */
   --text-secondary: 71 85 105; /* slate-600 */
   --text-disabled: 148 163 184; /* slate-400 */
 
@@ -42,7 +42,7 @@
   /* Semantic Colors */
   --bg-primary: var(--primary-900);
   --bg-secondary: var(--primary-800);
-  --text-primary: var(--neutral-50);
+  --text-primary: 0 0 0; /* Override to ensure black text */
   --text-secondary: var(--neutral-300);
   --border-color: var(--primary-700);
   --accent-color: rgb(56 189 248);
@@ -89,7 +89,7 @@
   --surface-overlay: 71 85 105; /* slate-600 */
   --surface-border: 51 65 85; /* slate-700 */
 
-  --text-primary: 248 250 252; /* slate-50 */
+  --text-primary: 255 255 255; /* white */
   --text-secondary: 226 232 240; /* slate-200 */
   --text-disabled: 148 163 184; /* slate-400 */
 }
@@ -161,22 +161,5 @@
 
   .toolbar-actions {
     @apply flex items-center gap-2;
-  }
-
-  /* Quill Editor Styles */
-  .quill-editor {
-    @apply border-none flex flex-col h-full border-0;
-  }
-
-  .quill-editor .ql-toolbar {
-    @apply flex-none border-none border-b border-surface-border bg-surface-section;
-  }
-
-  .quill-editor .ql-container {
-    @apply flex-1 flex flex-col h-full border-none border-0;
-  }
-
-  .quill-editor .ql-editor {
-    @apply flex-1 min-h-0 p-8 bg-surface-ground overflow-y-auto border-0;
   }
 }
