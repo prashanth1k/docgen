@@ -7,17 +7,18 @@
             <h2 class="section-title">Template</h2>
             <div class="toolbar-actions">
 
-              <Button variant="primary" size="lg" icon="lucide:save" title="Save">
+              <!-- <Button variant="primary" size="lg" icon="lucide:save" title="Save">
                 Save
               </Button>
               <Button variant="secondary" size="lg" icon="lucide:upload" title="Load">
                 Load
-              </Button>
+              </Button> -->
             </div>
           </div>
           <div class="h-[600px] overflow-hidden">
             <ClientOnly>
-              <TipTapEditor v-model="template" :preview-content="template" class="h-full" />
+
+              <RichTextEditor v-model="template" class="h-full" />
             </ClientOnly>
           </div>
         </div>
@@ -72,7 +73,7 @@ const { template, jsonData } = storeToRefs(documentStore);
 }
 
 .toolbar {
-  padding: 0.5rem;
+  padding: 0.3rem;
   border-bottom: 1px solid #ccc;
   /* Separator between toolbar and content */
   display: flex;

@@ -35,7 +35,7 @@
 
     <div v-else-if="activeTab === 'richText'" class="editor-container flex-1">
       <ClientOnly>
-        <TipTapEditor v-model="documentStore.template" :preview-content="documentStore.mergedContent"
+        <RichTextEditor v-model="documentStore.template" :preview-content="documentStore.mergedContent"
           @change="handleRichTextUpdate" />
       </ClientOnly>
     </div>
@@ -45,7 +45,6 @@
 <script setup lang="ts">
 import { ref, computed, watch, nextTick } from 'vue'
 import Button from './Button.vue'
-import TipTapEditor from './TipTapEditor.vue'
 import SimplePdfPreview from './SimplePdfPreview.vue'
 import { useDocumentStore } from '~/stores/document'
 

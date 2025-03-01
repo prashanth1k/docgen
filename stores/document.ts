@@ -14,7 +14,7 @@ interface DocumentData {
 
 export const useDocumentStore = defineStore("document", {
   state: () => ({
-    template: `<h1 style="text-align: center;">INVOICE</h1>
+    template: `<h1 style="text-align:center;">INVOICE</h1>
 <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
   <div>
     <h3>From:</h3>
